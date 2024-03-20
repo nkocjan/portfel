@@ -1,0 +1,6 @@
+private/
+node_modules/
+to-do
+.idea/
+package
+package-lock
