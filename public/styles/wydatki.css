@@ -1,0 +1,113 @@
+body {
+  background-color: #343a40;
+}
+.text-align-center {
+  text-align: center;
+}
+form {
+  text-decoration: none;
+  border-bottom: 3px solid #212529;
+  border-top: 3px solid #212529;
+}
+
+.style-border {
+  border-bottom: 3px solid #212529;
+  border-top: 3px solid #212529;
+}
+
+input {
+  border: none;
+}
+button {
+  border: none;
+}
+select {
+  border: none;
+}
+option {
+  border: none;
+}
+.style-width {
+  width: 130px;
+  height: 29.2px;
+}
+@media (max-width: 992px) {
+  .style-width {
+    width: 150px;
+  }
+  .style-table {
+    font-size: 10px;
+  }
+}
+@media (max-width: 414px) {
+  .style-sidebar {
+    width: 60px !important;
+  }
+
+  li a {
+    width: 20px !important;
+    margin-left: 0px !important;
+    padding-left: 0px !important;
+  }
+}
+input {
+  border: 2px solid #212529;
+}
+input:focus {
+  outline: none;
+  border: 2px solid wheat;
+}
+input:hover {
+  border-radius: 10px;
+}
+option {
+  border: 2px solid #212529;
+}
+option:focus {
+  outline: none;
+  border: 2px solid wheat;
+}
+option:hover {
+  border-radius: 2px;
+}
+select {
+  border: 2px solid #212529;
+}
+select:focus {
+  outline: none;
+  border: 2px solid wheat;
+}
+select:hover {
+  border-radius: 2px;
+}
+button {
+  border: 2px solid #212529;
+}
+button:focus {
+  outline: none;
+  border: 2px solid wheat;
+}
+button:hover {
+  border-radius: 10px;
+}
+.style-card {
+  width: 180px;
+  border: 2px solid white;
+}
+.card-img-top {
+  width: 100px !important;
+  margin-left: 40px;
+}
+.card-title {
+  font-size: small;
+}
+.card-text {
+  font-size: small;
+}
+.btn {
+  width: 100px;
+}
+.text-active {
+  color: wheat;
+  font-weight: bolder;
+}

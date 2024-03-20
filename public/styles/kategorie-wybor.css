@@ -1,0 +1,39 @@
+body {
+  background-color: #343a40;
+}
+.text-align-center {
+  text-align: center;
+}
+@media (max-width: 1244px) {
+  .style-card {
+    width: 20vw;
+  }
+}
+@media (max-width: 768px) {
+  .style-card {
+    width: 35vw;
+  }
+}
+@media (max-width: 576px) {
+  .style-card {
+    width: 140px;
+  }
+  .card-img-top {
+    width: 100px;
+  }
+  h5 {
+    font-size: medium;
+  }
+  p {
+    font-size: smaller;
+  }
+  .text-button-style {
+    font-size: smaller;
+  }
+  .btn {
+    height: 40px;
+  }
+}
+.btn {
+  width: 100%;
+}

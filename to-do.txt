@@ -1,0 +1,26 @@
+### STRONA PRZYCHODY
+DONE - podczas dodawania przychodu sprawdzic czy napewno cos zostalo wpisane
+DONE - możliwości usuwania przychodów
+DONE - wyświetlanie przychodów od -- do
+
+### STRONA GLOWNA
+wyświetlanie danych w slajdach
+dodać popupy do wyświetlanych rzeczy
+
+### STRONA WYDATKI 
+DONE - dodawanie nowego wydatku
+DONE - wyświetlanie tabeli wydatków
+DONE - wyświetlanie nazwy kategorii które mamy dopisane do konta ( obrazka itd)
+DONE - wyświetlanie kwoty wydanej na daną kategorie
+DONE - wyświetlanie wydatków rok mies tydzien
+DONE - wyświetlanie wydatków od -- do
+DONE - usuwanie wydatkow
+DONE - przechodzenie na strone kateogorie
+
+### STRONA KATEGORIE 
+DONE - stworzenie podstrony wyswietlajacej wszystkie wydatki z danej kategorii po nacisnieciu guzika edytuj kategorie
+DONE - na podstronie mozliwosc zmiany kateogorii danego wydatku
+DONE - na kafelkach kateogorii wyswietalnie ile wydano na dana kategorie
+DONE - obsługa message
+
+i to chyba wszystko ... 

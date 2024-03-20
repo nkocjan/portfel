@@ -1,6 +1,6 @@
 private/
 node_modules/
-to-do
+to-do.txt
 .idea/
-package
-package-lock
+package.json
+package-lock.json

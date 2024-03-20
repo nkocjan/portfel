@@ -1,0 +1,37 @@
+body {
+  background-color: #343a40;
+}
+.text-align-center {
+  text-align: center;
+}
+@media (max-width: 414px) {
+  .style-sidebar {
+    width: 60px !important;
+  }
+
+  li a {
+    width: 20px !important;
+    margin-left: 0px !important;
+    padding-left: 0px !important;
+  }
+}
+.text-active {
+  color: wheat;
+  font-weight: bolder;
+}
+.style-input {
+  height: 38px;
+  border: 2px solid #343a40;
+}
+.style-input:hover {
+  border-radius: 10px;
+}
+.style-input:focus {
+  border: 2px solid wheat;
+  outline: none;
+}
+@media (max-width: 1318px) {
+  .style-input {
+    width: 150px;
+  }
+}
