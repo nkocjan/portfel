@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION["login"])) {
   $_SESSION["message"] = "Musisz najpierw się zalogować";
-  header("Location: /portfel/login.php");
+  header("Location: /portfolio/portfel/login.php");
 } else {
   try {
     $pusto = "empty";
@@ -19,7 +19,7 @@ if (!isset($_SESSION["login"])) {
     $celeUzytkownika = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     if (count($celeUzytkownika) == 0) {
-      header("Location: /portfel/wyloguj.php");
+      header("Location: /portfolio/portfel/wyloguj.php");
     } else {
 
       if (isset($_POST["cel1"])) {
@@ -59,7 +59,7 @@ if (!isset($_SESSION["login"])) {
       $conn->commit();
       $conn = null;
       $_SESSION["message"] = "Poprawnie usunięto cel";
-      header("Location: /portfel/views/konto.php");
+      header("Location: /portfolio/portfel/views/konto.php");
     }
   } catch (PDOException $e) {
     $_SESSION["message"] = "Błąd podczas usuwania celu" . $e->getMessage();

@@ -2,7 +2,7 @@
 session_start();
 if ($_POST["nowyCel"] == "") {
   $_SESSION['error'] = "Pole cel jest puste ! ! !";
-  header("Location: /portfel/views/konto.php");
+  header("Location: /portfolio/portfel/views/konto.php");
 } else {
   $empty = "empty";
   require_once "../private/connectDB.php";
@@ -30,7 +30,7 @@ if ($_POST["nowyCel"] == "") {
     $conn->commit();
     $conn = null;
     $_SESSION["message"] = "Poprawnie dodano nowy cel, oraz stworzono nowy wiersz";
-    header("Location: /portfel/views/konto.php");
+    header("Location: /portfolio/portfel/views/konto.php");
   } else {
     if ($celeUzytkownika[0]["cel2"] == "empty") {
       $query2 = "UPDATE cele SET cel2 = :nowyCel WHERE login = :login";
@@ -41,7 +41,7 @@ if ($_POST["nowyCel"] == "") {
       $conn->commit();
       $conn = null;
       $_SESSION["message"] = "Poprawnie dodano nowy cel";
-      header("Location: /portfel/views/konto.php");
+      header("Location: /portfolio/portfel/views/konto.php");
     } else if ($celeUzytkownika[0]["cel3"] == "empty") {
       $query3 = "UPDATE cele SET cel3 = :nowyCel WHERE login = :login";
       $statement3 = $conn->prepare($query3);
@@ -51,7 +51,7 @@ if ($_POST["nowyCel"] == "") {
       $conn->commit();
       $conn = null;
       $_SESSION["message"] = "Poprawnie dodano nowy cel";
-      header("Location: /portfel/views/konto.php");
+      header("Location: /portfolio/portfel/views/konto.php");
     } else if ($celeUzytkownika[0]["cel4"] == "empty") {
       $query4 = "UPDATE cele SET cel4 = :nowyCel WHERE login = :login";
       $statement4 = $conn->prepare($query4);
@@ -61,12 +61,12 @@ if ($_POST["nowyCel"] == "") {
       $conn->commit();
       $conn = null;
       $_SESSION["message"] = "Poprawnie dodano nowy cel";
-      header("Location: /portfel/views/konto.php");
+      header("Location: /portfolio/portfel/views/konto.php");
     } else {
       $conn->commit();
       $conn = null;
       $_SESSION["error"] = "Osiągnięto maksymalną ilość celów. Usuń któryś, aby dodać nowy";
-      header("Location: /portfel/views/konto.php");
+      header("Location: /portfolio/portfel/views/konto.php");
     }
   }
 }

@@ -2,22 +2,22 @@
 session_start();
 if ($_POST["login"] == "") {
   $_SESSION["error"] = "Puste pole login";
-  header("Location: /portfel/register.php");
+  header("Location: /portfolio/portfel/register.php");
 } else if ($_POST["password"] == "") {
   $_SESSION["error"] = "Puste pole haslo";
-  header("Location: /portfel/register.php");
+  header("Location: /portfolio/portfel/register.php");
 } else if (strlen($_POST["password"]) <= 3 || strlen($_POST["password"]) >= 24) {
   $_SESSION["error"] = "Hasło musi zawierać od 3 do 24 znaków";
-  header("Location: /portfel/register.php");
+  header("Location: /portfolio/portfel/register.php");
 } else if ($_POST["passwordRepeat"] == "") {
   $_SESSION["error"] = "Puste pole powtorz haslo";
-  header("Location: /portfel/register.php");
+  header("Location: /portfolio/portfel/register.php");
 } else if ($_POST["passwordRepeat"] != $_POST["password"]) {
   $_SESSION["error"] = "Hasła różnią się od siebie";
-  header("Location: /portfel/register.php");
+  header("Location: /portfolio/portfel/register.php");
 } else if ($_POST["email"] == "") {
   $_SESSION["error"] = "Puste pole email";
-  header("Location: /portfel/register.php");
+  header("Location: /portfolio/portfel/register.php");
 } else {
   $zero = 0;
   require_once "../private/connectDB.php";

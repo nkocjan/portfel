@@ -8,9 +8,9 @@ if (!isset($_SESSION["message"])) {
 }
 if (!isset($_SESSION["login"])) {
   $_SESSION["message"] = "Musisz się zalogować";
-  header("Location: /portfel/login.php");
+  header("Location: /portfolio/portfel/login.php");
 } else if ($_SESSION["czy_kategorie_set"] == 0) {
-  header("Location: /portfel/kategorie-wybor.php");
+  header("Location: /portfolio/portfel/kategorie-wybor.php");
 } else {
   try {
     require_once "../private/connectDB.php";
@@ -83,7 +83,7 @@ if (!isset($_SESSION["login"])) {
     $conn = null;
   } catch (PDOException $e) {
     echo "error z bazą dancyh";
-    header("Location: /portfel/wyloguj.php");
+    header("Location: /portfolio/portfel/wyloguj.php");
   }
 }
 ?>
@@ -109,35 +109,35 @@ if (!isset($_SESSION["login"])) {
         <div class="bg-dark">
           <ul class="nav nav-pills flex-column mt-4 align-items-center">
             <li class="nav-item">
-              <a href="/portfel" class="d-flex nav-link text-white text-decoration-none align-items-center">
+              <a href="../index.php" class="d-flex nav-link text-white text-decoration-none align-items-center">
                 <span class="material-symbols-outlined">Menu</span>
                 <div style="width: 10px"></div>
                 <span class="fs-4 d-none d-lg-inline">Portfel</span>
               </a>
             </li>
             <li class="nav-item mt-3">
-              <a href="/portfel/views/przychody.php" class="d-flex nav-link text-white text-decoration-none align-items-center">
+              <a href="przychody.php" class="d-flex nav-link text-white text-decoration-none align-items-center">
                 <span class="material-symbols-outlined">trending_up</span>
                 <div style="width: 10px"></div>
                 <span class="d-none d-lg-inline">Przychody</span>
               </a>
             </li>
             <li class="nav-item mt-3">
-              <a href="/portfel/views/wydatki.php" class="d-flex nav-link text-white text-decoration-none align-items-center">
+              <a href="wydatki.php" class="d-flex nav-link text-white text-decoration-none align-items-center">
                 <span class="material-symbols-outlined">trending_down</span>
                 <div style="width: 10px"></div>
                 <span class="d-none d-lg-inline ml-2">Wydatki</span>
               </a>
             </li>
             <li class="nav-item mt-3">
-              <a href="/portfel/views/kategorie.php" class="d-flex nav-link text-white text-decoration-none align-items-center">
+              <a href="kategorie.php" class="d-flex nav-link text-white text-decoration-none align-items-center">
                 <span class="material-symbols-outlined">category</span>
                 <div style="width: 10px"></div>
                 <span class="d-none d-lg-inline ml-2">Kategorie</span>
               </a>
             </li>
             <li class="nav-item mt-3">
-              <a href="/portfel/views/konto.php" class="d-flex nav-link text-white text-decoration-none align-items-center">
+              <a href="konto.php" class="d-flex nav-link text-white text-decoration-none align-items-center">
                 <span class="material-symbols-outlined text-active">
                   person
                 </span>
@@ -249,7 +249,7 @@ if (!isset($_SESSION["login"])) {
                 ?>
               </div>
             </div>
-            <form method="POST" action="/portfel/prv/prv_dodaj_cel.php">
+            <form method="POST" action="../prv/prv_dodaj_cel.php">
               <div class="row mt-4">
                 <div class="col-md-8">
                   <input name="nowyCel" type="text" placeholder="dodaj cel" class="text-align-center" style="width: 250px; font-size: small" />

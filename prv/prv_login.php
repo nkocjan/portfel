@@ -2,10 +2,10 @@
 session_start();
 if ($_POST["password"] == "") {
   $_SESSION["error"] = "Puste pole hasło";
-  header("Location: /portfel/login.php");
+  header("Location: /portfolio/portfel/login.php");
 } else if ($_POST["login"] == "") {
   $_SESSION["error"] = "Puste pole login";
-  header("Location: /portfel/login.php");
+  header("Location: /portfolio/portfel/login.php");
 } else {
 
   require_once "../private/connectDB.php";
@@ -23,18 +23,18 @@ if ($_POST["password"] == "") {
     if (count($results) == 0) {
       $_SESSION["error"] = "Brak użytkownika o takich danych 1";
       $conn = null;
-      header("Location: /portfel/login.php");
+      header("Location: /portfolio/portfel/login.php");
     } else if (password_verify($password, $results[0]['haslo'])) {
       $_SESSION["login"] = $results[0]["login"];
       $_SESSION["haslo"] = $results[0]["haslo"];
       $_SESSION["czy_kategorie_set"] = $results[0]["kategorie"];
       $conn = null;
       unset($_SESSION["error"]);
-      header("Location: /portfel");
+      header("Location: /portfolio/portfel");
     } else {
       $_SESSION["error"] = "Brak użytkownika o takich danych";
       $conn = null;
-      header("Location: /portfel/login.php");
+      header("Location: /portfolio/portfel/login.php");
     }
   } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();

@@ -7,7 +7,7 @@ if (!isset($_SESSION["message"])) {
   $_SESSION["message"] = false;
 }
 if (!isset($_SESSION["login"])) {
-  header("Location: /portfel/login.php");
+  header("Location: /portfolio/portfel/login.php");
 } else {
   try {
     require_once "../private/connectDB.php";
@@ -22,15 +22,15 @@ if (!isset($_SESSION["login"])) {
     if (count($dane) == 0) {
       $conn = null;
       $_SESSION["message"] = "BŁĄD BRAK USERA < SPRAWDZ KOD >";
-      header("Location: /portfel/wyloguj.php");
+      header("Location: /portfolio/portfel/wyloguj.php");
     } else {
       if (isset($_POST["newLogin1"]) && isset($_POST["haslo1"])) {
         if (strlen($_POST["newLogin1"]) <= 3 || strlen($_POST["newLogin1"]) > 20) {
           $_SESSION["message"] = "Nowy login musi zawierać od 4 do 19 zanków";
-          header("Location: /portfel/views/konto.php");
+          header("Location: /portfolio/portfel/views/konto.php");
         } else if (!password_verify($_POST["haslo1"], $dane[0]["haslo"])) {
           $_SESSION["message"] = "Podane hasło nie jest prawidłowe. Spróbuj ponownie xddd";
-          header("Location: /portfel/views/konto.php");
+          header("Location: /portfolio/portfel/views/konto.php");
         } else {
           $query1a = "UPDATE users SET login = :newlogin WHERE login = :login";
           $statement1a = $conn->prepare($query1a);
@@ -65,15 +65,15 @@ if (!isset($_SESSION["login"])) {
           $conn = null;
           $_SESSION["login"] = $_POST["newLogin1"];
           $_SESSION["message"] = "Poprawnie zmieniono dane";
-          header("Location: /portfel/views/konto.php");
+          header("Location: /portfolio/portfel/views/konto.php");
         }
       } else if (isset($_POST["newPassword2"]) && isset($_POST["haslo2"])) {
         if (strlen($_POST["newPassword2"]) <= 3) {
           $_SESSION["message"] = "Nowe hasło musi mieć minimum 3 znaki";
-          header("Location: /portfel/views/konto.php");
+          header("Location: /portfolio/portfel/views/konto.php");
         } else if (!password_verify($_POST["haslo2"], $dane[0]["haslo"])) {
           $_SESSION["message"] = "Podane hasło nie jest prawidłowe. Spróbuj ponownie";
-          header("Location: /portfel/views/konto.php");
+          header("Location: /portfolio/portfel/views/konto.php");
         } else {
           $query2 = "UPDATE users SET haslo = :haslo WHERE login = :login";
           $statement2 = $conn->prepare($query2);
@@ -84,12 +84,12 @@ if (!isset($_SESSION["login"])) {
           $conn->commit();
           $conn = null;
           $_SESSION["message"] = "Poprawnie zmieniono dane";
-          header("Location: /portfel/views/konto.php");
+          header("Location: /portfolio/portfel/views/konto.php");
         }
       } else if (isset($_POST["newEmail3"]) && isset($_POST["haslo3"])) {
         if (!password_verify($_POST["haslo3"], $dane[0]["haslo"])) {
           $_SESSION["message"] = "Podane hasło nie jest prawidłowe. Spróbuj ponownie";
-          header("Location: /portfel/views/konto.php");
+          header("Location: /portfolio/portfel/views/konto.php");
         } else {
           $query3 = "UPDATE users SET email = :email WHERE login = :login";
           $statement3 = $conn->prepare($query3);
@@ -99,11 +99,11 @@ if (!isset($_SESSION["login"])) {
           $conn->commit();
           $conn = null;
           $_SESSION["message"] = "Poprawnie zmieniono dane";
-          header("Location: /portfel/views/konto.php");
+          header("Location: /portfolio/portfel/views/konto.php");
         }
       } else {
         $_SESSION["message"] = "Mega błąd";
-        header("Location: /portfel/views/konto.php");
+        header("Location: /portfolio/portfel/views/konto.php");
       }
     }
   } catch (PDOException $e) {

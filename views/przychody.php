@@ -1,9 +1,9 @@
 <?php
 session_start();
 if (!isset($_SESSION["login"])) {
-  header("Location: /portfel/login.php");
+  header("Location: /portfolio/portfel/login.php");
 }else if ($_SESSION["czy_kategorie_set"] == 0) {
-    header("Location: /portfel/kategorie-wybor.php");
+    header("Location: /portfolio/portfel/kategorie-wybor.php");
 }else {
 
     require_once "../private/connectDB.php";
@@ -82,7 +82,7 @@ if (!isset($_SESSION["login"])) {
         <div class="bg-dark">
           <ul class="nav nav-pills flex-column mt-4 align-items-center">
             <li class="nav-item">
-              <a href="/portfel" class="d-flex nav-link text-white text-decoration-none align-items-center">
+              <a href="../index.php" class="d-flex nav-link text-white text-decoration-none align-items-center">
                 <span class="material-symbols-outlined">Menu</span>
                 <div style="width: 10px"></div>
                 <span class="fs-4 d-none d-lg-inline">Portfel</span>

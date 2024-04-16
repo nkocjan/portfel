@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION["login"])) {
   sleep(7);
-  header("Location: /portfel/login.php");
+  header("Location: /portfolio/portfel/login.php");
 } else {
   require_once "../private/connectDB.php";
   try {
@@ -75,7 +75,7 @@ if (!isset($_SESSION["login"])) {
     $_SESSION["czy_kategorie_set"] = 1;
     $conn = null;
     sleep(5);
-    header("Location: /portfel");
+    header("Location: /portfolio/portfel");
   } catch (PDOException $e) {
     echo "Connected failed" . $e->getMessage();
   }

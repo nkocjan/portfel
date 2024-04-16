@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION["login"])) {
   session_destroy();
-  header("Location: /portfel/login.php");
+  header("Location: /portfolio/portfel/login.php");
 } else {
 
   require_once "../private/connectDB.php";
@@ -32,18 +32,18 @@ if (!isset($_SESSION["login"])) {
       }
 
       if($_POST["type"] == "wydatek"){
-          header("Location: /portfel/views/wydatki.php");
+          header("Location: /portfolio/portfel/views/wydatki.php");
       }else {
-          header("Location: /portfel/views/przychody.php");
+          header("Location: /portfolio/portfel/views/przychody.php");
       }
 
   } catch (Exception $e) {
     $conn->rollBack();
     $_SESSION["message"] = $e->getMessage();
       if($_POST["type"] == "wydatek"){
-          header("Location: /portfel/views/wydatki.php");
+          header("Location: /portfolio/portfel/views/wydatki.php");
       }else {
-          header("Location: /portfel/views/przychody.php");
+          header("Location: /portfolio/portfel/views/przychody.php");
       }
   }
 }

@@ -26,7 +26,7 @@ if (!isset($_SESSION["error"])) {
       <div class="col-sm-4 custom-col-sm-2 bg-dark">
         <fieldset>
           <div class="row">
-            <form method="POST" action="prv/prv_register.php">
+            <form method="POST" action="./prv/prv_register.php">
               <div class="row">
                 <div class="col-lg-4 mt-5">
                   <label for="login">Podaj login</label>

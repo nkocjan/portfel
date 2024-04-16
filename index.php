@@ -1,9 +1,9 @@
 <?php /** @noinspection DuplicatedCode */
 session_start();
 if (!isset($_SESSION["login"])) {
-  header("Location: /portfel/login.php");
+  header("Location: /portfolio/portfel/login.php");
 } else if ($_SESSION["czy_kategorie_set"] == 0) {
-  header("Location: /portfel/kategorie-wybor.php");
+  header("Location: /portfolio/portfel/kategorie-wybor.php");
 } else {
   try {
     require_once "./private/connectDB.php";
@@ -141,9 +141,9 @@ if (!isset($_SESSION["login"])) {
 
       // Nowa tablica zawierająca wydatki od najwiekszego
     $dane_cpy = $dane;
-      for ($i = 0; $i < count($dane_cpy); $i++) {
-          for ($j = 1; $j < count($dane_cpy) - $i; $j++) {
-              if ($dane_cpy[$j-1]["kwota"] >= $dane_cpy[$j]["kwota"]) {
+      for ($i = 0; $i < count($dane); $i++) {
+          for ($j = 1; $j < count($dane) - $i; $j++) {
+              if ($dane_cpy[$j-1]["kwota"] <= $dane_cpy[$j]["kwota"]) {
                   $tmp = $dane_cpy[$j - 1];
                   $dane_cpy[$j - 1] = $dane_cpy[$j];
                   $dane_cpy[$j] = $tmp;
@@ -152,9 +152,9 @@ if (!isset($_SESSION["login"])) {
       }
     // Nowa tablica zawierająca przychody od największego
       $dane_cpy2 = $dane2;
-      for ($i = 0; $i < count($dane_cpy2); $i++) {
-          for ($j = 1; $j < count($dane_cpy2) - $i; $j++) {
-              if ($dane_cpy2[$j-1]["kwota"] >= $dane_cpy2[$j]["kwota"]) {
+      for ($i = 0; $i < count($dane2); $i++) {
+          for ($j = 1; $j < count($dane2) - $i; $j++) {
+              if ($dane_cpy2[$j-1]["kwota"] <= $dane_cpy2[$j]["kwota"]) {
                   $tmp = $dane_cpy2[$j - 1];
                   $dane_cpy2[$j - 1] = $dane_cpy2[$j];
                   $dane_cpy2[$j] = $tmp;
@@ -198,7 +198,7 @@ if (!isset($_SESSION["login"])) {
         <div class="bg-dark">
           <ul class="nav nav-pills flex-column mt-4 align-items-center">
             <li class="nav-item active">
-              <a href="/portfel" class="d-flex nav-link text-white text-decoration-none align-items-center">
+              <a href="/portfolio/portfel" class="d-flex nav-link text-white text-decoration-none align-items-center">
                 <span class="material-symbols-outlined text-active"> Menu </span>
                 <div style="width: 10px"></div>
                 <span class="fs-4 d-none d-lg-inline ml-2 text-active"> Portfel </span>
@@ -302,17 +302,17 @@ if (!isset($_SESSION["login"])) {
                 <div class="carousel-item">
                   <div class="style-carousel-box">
                     <h3>Ostatnie wydatki</h3>
-                      <p><?php if(isset($dane[0])){ echo $dane[0]["nazwa"]. ": ".$dane[0]["kwota"]; } else echo "Brak, dodaj wydatki"?></p>
-                      <p><?php if(isset($dane[1])) echo $dane[1]["nazwa"]. ": ".$dane[1]["kwota"]; ?></p>
-                      <p><?php if(isset($dane[2])) echo $dane[2]["nazwa"]. ": ".$dane[2]["kwota"]; ?></p>
+                      <p><?php if(isset($dane[0])){ echo $dane[0]["nazwa"]. ": ".$dane[0]["kwota"] . " zł"; } else echo "Brak, dodaj wydatki"?></p>
+                      <p><?php if(isset($dane[1])) echo $dane[1]["nazwa"]. ": ".$dane[1]["kwota"] . " zł"; ?></p>
+                      <p><?php if(isset($dane[2])) echo $dane[2]["nazwa"]. ": ".$dane[2]["kwota"] . " zł"; ?></p>
                   </div>
                 </div>
                 <div class="carousel-item">
                   <div class="style-carousel-box">
                     <h3>Największe wydatki</h3>
-                      <p><?php if(isset($dane_cpy[0])){echo $dane_cpy[0]["nazwa"]. ": ". $dane_cpy[0]["kwota"];} else echo "Brak, dodaj wydatki"?></p>
-                      <p><?php if(isset($dane_cpy[1])) echo $dane_cpy[1]["nazwa"]. ": ". $dane_cpy[1]["kwota"]?></p>
-                      <p><?php if(isset($dane_cpy[2])) echo $dane_cpy[2]["nazwa"]. ": ". $dane_cpy[2]["kwota"]?></p>
+                      <p><?php if(isset($dane_cpy[0])){echo $dane_cpy[0]["nazwa"]. ": ". $dane_cpy[0]["kwota"] . " zł";} else echo "Brak, dodaj wydatki"?></p>
+                      <p><?php if(isset($dane_cpy[1])) echo $dane_cpy[1]["nazwa"]. ": ". $dane_cpy[1]["kwota"] . " zł"?></p>
+                      <p><?php if(isset($dane_cpy[2])) echo $dane_cpy[2]["nazwa"]. ": ". $dane_cpy[2]["kwota"] . " zł"?></p>
                   </div>
                 </div>
               </div>
@@ -382,17 +382,17 @@ if (!isset($_SESSION["login"])) {
                 <div class="carousel-item">
                   <div class="style-carousel-box">
                     <h3>Ostatnie przychody</h3>
-                      <p><?php if(isset($dane2[0])) {echo $dane2[0]["nazwa"]. ": ".$dane2[0]["kwota"];} else echo "Brak, dodaj przychody" ?></p>
-                      <p><?php if(isset($dane2[1])) echo $dane2[1]["nazwa"]. ": ".$dane2[1]["kwota"]; ?></p>
-                      <p><?php if(isset($dane2[2])) echo $dane2[2]["nazwa"]. ": ".$dane2[2]["kwota"]; ?></p>
+                      <p><?php if(isset($dane2[0])) {echo $dane2[0]["nazwa"]. ": ".$dane2[0]["kwota"] . " zł";} else echo "Brak, dodaj przychody" ?></p>
+                      <p><?php if(isset($dane2[1])) echo $dane2[1]["nazwa"]. ": ".$dane2[1]["kwota"] . " zł"; ?></p>
+                      <p><?php if(isset($dane2[2])) echo $dane2[2]["nazwa"]. ": ".$dane2[2]["kwota"] . " zł"; ?></p>
                   </div>
                 </div>
                 <div class="carousel-item">
                   <div class="style-carousel-box">
                     <h3>Największe przychody</h3>
-                      <p><?php if(isset($dane_cpy2[0])) {echo $dane_cpy2[0]["nazwa"]. ": ". $dane_cpy2[0]["kwota"];} else echo "Brak, dodaj przychody"?></p>
-                      <p><?php if(isset($dane_cpy2[1])) echo $dane_cpy2[1]["nazwa"]. ": ". $dane_cpy2[1]["kwota"]?></p>
-                      <p><?php if(isset($dane_cpy2[2])) echo $dane_cpy2[2]["nazwa"]. ": ". $dane_cpy2[2]["kwota"]?></p>
+                      <p><?php if(isset($dane_cpy2[0])) {echo $dane_cpy2[0]["nazwa"]. ": ". $dane_cpy2[0]["kwota"] . " zł";} else echo "Brak, dodaj przychody"?></p>
+                      <p><?php if(isset($dane_cpy2[1])) echo $dane_cpy2[1]["nazwa"]. ": ". $dane_cpy2[1]["kwota"] . " zł"?></p>
+                      <p><?php if(isset($dane_cpy2[2])) echo $dane_cpy2[2]["nazwa"]. ": ". $dane_cpy2[2]["kwota"] . " zł"?></p>
                   </div>
                 </div>
               </div>

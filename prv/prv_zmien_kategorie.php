@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION["login"])) {
     session_destroy();
-    header("Location: /portfel/login.php");
+    header("Location: /portfolio/portfel/login.php");
 } else {
     require_once "../private/connectDB.php";
     try {

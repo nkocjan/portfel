@@ -2,13 +2,13 @@
 session_start();
 if (!isset($_SESSION["login"])) {
   session_destroy();
-  header("Location: /portfel/login.php");
+  header("Location: /portfolio/portfel/login.php");
 } else if ($_POST["data_od"] == "" || $_POST["data_do"] == "") {
   $_SESSION["message"] = "Musisz podać datę od i do";
     if($_POST["type"] == "wydatek"){
-        header("Location: /portfel/views/wydatki.php");
+        header("Location: /portfolio/portfel/views/wydatki.php");
     } else if($_POST["type"] == "przychod"){
-        header("Location: /portfel/views/przychody.php");
+        header("Location: /portfolio/portfel/views/przychody.php");
     }
 } else {
   require_once "../private/connectDB.php";
@@ -16,7 +16,7 @@ if (!isset($_SESSION["login"])) {
     $conn = new PDO("mysql:host=$servernameSQL;dbname=$dbnameSQL", $usernameSQL, $passwordSQL);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conn->beginTransaction();
-
+    $query = '';
     if($_POST["type"] == "wydatek"){
         $query = "SELECT * FROM wydatki WHERE login = :_login";
     } else if($_POST["type"] == "przychod"){
@@ -51,18 +51,20 @@ if (!isset($_SESSION["login"])) {
       }
 
       if($_POST["type"] == "wydatek"){
-          header("Location: /portfel/views/wydatki.php");
+          $_SESSION["kwota_do_wyswietlenia_wydatki"] = $count;
+          header("Location: /portfolio/portfel/views/wydatki.php");
       } else if($_POST["type"] == "przychod"){
-          header("Location: /portfel/views/przychody.php");
+          $_SESSION["kwota_do_wyswietlenia_przychody"] = $count;
+          header("Location: /portfolio/portfel/views/przychody.php");
       }
 
   } catch (Exception $e) {
     $conn->rollBack();
     $_SESSION["message"] = $e->getMessage();
       if($_POST["type"] == "wydatek"){
-          header("Location: /portfel/views/wydatki.php");
+          header("Location: /portfolio/portfel/views/wydatki.php");
       } else if($_POST["type"] == "przychod"){
-          header("Location: /portfel/views/przychody.php");
+          header("Location: /portfolio/portfel/views/przychody.php");
       }
   }
   $conn = null;

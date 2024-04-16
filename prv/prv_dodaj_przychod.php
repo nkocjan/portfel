@@ -1,17 +1,18 @@
 <?php
+/** @noinspection ALL */
 session_start();
 if (!isset($_SESSION["login"])) {
-  header("Location: /portfel/login.php");
+  header("Location: /portfolio/portfel/login.php");
 } else if (!isset($_POST["nazwa"])) {
-  header("Location: /portfel/login.php");
+  header("Location: /portfolio/portfel/login.php");
 } else if ($_POST["nazwa"] == "" || $_POST["kwota"] == "" || $_POST["data"] == "") {
   $_SESSION["message"] = "Musisz wypełnić nazwe, kwotę, datę";
-  header("Location: /portfel/views/przychody.php");
+  header("Location: /portfolio/portfel/views/przychody.php");
 } else {
 
   if (strlen($_POST["nazwa"]) < 4 || strlen($_POST["nazwa"]) > 30) {
     $_SESSION["message"] = "Nazwa musi zawierać od 4 do 30 znaków";
-    header("Location: /portfel/views/przychody.php");
+    header("Location: /portfolio/portfel/views/przychody.php");
   } else {
     require_once("../private/connectDB.php");
     $conn = new PDO("mysql:host=$servernameSQL;dbname=$dbnameSQL", $usernameSQL, $passwordSQL);
@@ -30,12 +31,12 @@ if (!isset($_SESSION["login"])) {
       $conn->commit();
 
       $_SESSION["message"] = "Poprawnie dodano nowy przychod";
-      header("Location: /portfel/views/przychody.php");
+      header("Location: /portfolio/portfel/views/przychody.php");
     } catch (Exception $e) {
       $conn->rollBack();
       $conn = null;
       $_SESSION["message"] = "Niepoprawnie dodano nowy przychod";
-      header("Location: /portfel/views/przychody.php");
+      header("Location: /portfolio/portfel/views/przychody.php");
     }
   }
 }
